@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Programa Renato · Hipertrofia Equilibrada · 45 min</title>
+<style>
+*{box-sizing:border-box}
+:root{
+  --surface:#fcfcfb; --plane:#f9f9f7; --ink:#0b0b0b; --ink2:#52514e; --muted:#898781;
+  --grid:#e1e0d9; --axis:#c3c2b7; --border:rgba(11,11,11,.10);
+  --s1:#2a78d6; --s2:#eb6834; --band:#eceae3;
+  --sup:#f0f4fb; --supl:#cfe0f7;
+}
+@media (prefers-color-scheme:dark){
+  :root:where(:not([data-theme="light"])){
+    --surface:#1a1a19; --plane:#0d0d0d; --ink:#fff; --ink2:#c3c2b7; --muted:#898781;
+    --grid:#2c2c2a; --axis:#383835; --border:rgba(255,255,255,.10);
+    --s1:#3987e5; --s2:#d95926; --band:#282826;
+    --sup:#16202e; --supl:#24405f;
+  }
+}
+:root[data-theme="dark"]{
+  --surface:#1a1a19; --plane:#0d0d0d; --ink:#fff; --ink2:#c3c2b7; --muted:#898781;
+  --grid:#2c2c2a; --axis:#383835; --border:rgba(255,255,255,.10);
+  --s1:#3987e5; --s2:#d95926; --band:#282826;
+  --sup:#16202e; --supl:#24405f;
+}
+html{color-scheme:light dark}
+body{margin:0;background:var(--plane);color:var(--ink);
+  font:15px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:940px;margin:0 auto;padding:32px 20px 80px}
+h1{font-size:28px;line-height:1.2;margin:0 0 6px;letter-spacing:-.01em}
+h2{font-size:19px;margin:44px 0 14px;letter-spacing:-.005em}
+h3{font-size:16px;margin:0;letter-spacing:-.005em}
+p{margin:0 0 12px}
+.sub{color:var(--ink2);margin:0 0 18px;font-size:14.5px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 26px}
+.chip{font-size:12.5px;color:var(--ink2);background:var(--surface);border:1px solid var(--border);
+  border-radius:999px;padding:4px 11px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;
+  padding:18px 18px 6px;margin:0 0 16px}
+.card-h{display:flex;align-items:flex-start;gap:13px;margin-bottom:13px}
+.badge{flex:none;width:34px;height:34px;border-radius:9px;background:var(--s1);color:#fff;
+  display:grid;place-items:center;font-weight:650;font-size:15px}
+.card-t{flex:1;min-width:0}
+.meta{margin:2px 0 0;font-size:12.5px;color:var(--muted)}
+.tag{display:inline-block;padding:1px 7px;border-radius:5px;font-size:11.5px;font-weight:600;
+  background:var(--band);color:var(--ink2)}
+.prog{float:right;font-variant-numeric:tabular-nums}
+.reset{flex:none;background:none;border:1px solid var(--border);color:var(--muted);
+  border-radius:7px;font-size:11.5px;padding:3px 9px;cursor:pointer;font-family:inherit}
+.reset:hover{color:var(--ink);border-color:var(--axis)}
+.warm{font-size:13px;color:var(--ink2);background:var(--plane);border-radius:9px;padding:9px 12px;margin:0 0 12px}
+.warm strong{color:var(--ink)}
+.tw{overflow-x:auto;margin:0 -4px}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th{text-align:left;font-weight:600;font-size:11.5px;color:var(--muted);text-transform:uppercase;
+  letter-spacing:.04em;padding:0 8px 7px;border-bottom:1px solid var(--grid);white-space:nowrap}
+td{padding:8px;border-bottom:1px solid var(--grid);vertical-align:top}
+tbody tr:last-child td{border-bottom:none}
+.cod{color:var(--muted);font-size:12px;font-weight:600;width:30px;white-space:nowrap}
+.num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--ink2)}
+th.num{text-align:right}
+.desc{font-size:12.5px;color:var(--muted)}
+.desc.sup{color:var(--s1);font-weight:600}
+.ex label{display:flex;gap:9px;align-items:flex-start;cursor:pointer}
+.chk{flex:none;margin-top:2px;width:15px;height:15px;accent-color:var(--s1);cursor:pointer}
+.chk:checked + span{color:var(--muted);text-decoration:line-through}
+.nota{font-size:12.5px;color:var(--ink2);border-top:1px solid var(--grid);padding:11px 2px 12px;margin:8px 0 0}
+.box{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px}
+.box h3{margin:0 0 8px}
+.box h3+p{color:var(--ink2);font-size:14px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:680px){.grid2{grid-template-columns:1fr}}
+ul{margin:0 0 12px;padding-left:19px} li{margin-bottom:6px}
+.lead{color:var(--ink2);font-size:14px;margin-bottom:16px}
+.queue{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 18px}
+.qi{display:flex;align-items:center;gap:7px;background:var(--surface);border:1px solid var(--border);
+  border-radius:10px;padding:7px 12px 7px 8px;font-size:13px;color:var(--ink2)}
+.qi b{width:22px;height:22px;border-radius:6px;background:var(--s1);color:#fff;display:grid;
+  place-items:center;font-size:12px;font-weight:650}
+.qi.low b{background:var(--s2)}
+.arw{color:var(--muted);font-size:13px}
+/* chart */
+.chartbox{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px 20px 14px}
+.legend{display:flex;gap:16px;font-size:12.5px;color:var(--ink2);margin:0 0 14px;flex-wrap:wrap}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.row{display:grid;grid-template-columns:118px 1fr 34px;align-items:center;gap:10px;padding:3px 0}
+.rl{font-size:12.5px;color:var(--ink2);text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.track{position:relative;height:19px}
+.rng{position:absolute;top:0;height:19px;background:var(--band);border-radius:3px}
+.bar{position:absolute;top:3px;height:13px;background:var(--s1);border-radius:0 4px 4px 0;
+  transition:width .5s cubic-bezier(.2,.7,.3,1)}
+.rv{font-size:12.5px;color:var(--ink);font-variant-numeric:tabular-nums;font-weight:600}
+.row:hover .rng{background:var(--supl)}
+.axis{display:grid;grid-template-columns:118px 1fr 34px;gap:10px;margin-top:8px}
+.ticks{position:relative;height:16px;border-top:1px solid var(--axis)}
+.ticks span{position:absolute;top:3px;transform:translateX(-50%);font-size:11px;color:var(--muted);
+  font-variant-numeric:tabular-nums}
+.tog{background:none;border:1px solid var(--border);color:var(--ink2);border-radius:7px;
+  font-size:12px;padding:4px 10px;cursor:pointer;font-family:inherit;margin-top:10px}
+.tog:hover{border-color:var(--axis);color:var(--ink)}
+#voltab{display:none;margin-top:14px}
+#voltab.on{display:block}
+.foot{color:var(--muted);font-size:12px;margin-top:34px;border-top:1px solid var(--grid);padding-top:14px}
+@media print{.reset,.tog{display:none} .card{break-inside:avoid}}
+</style></head><body>
+<div class="wrap">
+
+<h1>Programa Renato · Hipertrofia Equilibrada</h1>
+<p class="sub">Fila rotativa de 6 sessões · teto de 45 min por dia · praticante com 20+ anos de treino · tênis 1× e futebol 1× por semana</p>
+<div class="chips">
+  <span class="chip">132 séries por ciclo</span>
+  <span class="chip">≈ 154 séries por semana</span>
+  <span class="chip">33–36 min de treino efetivo</span>
+  <span class="chip">Supersérie antagonista</span>
+  <span class="chip">Ênfase em posição alongada</span>
+  <span class="chip">Atualizado em 10/08/2026</span>
+</div>
+
+<h2>Como o ciclo roda</h2>
+<p class="lead">Não há dias fixos da semana. As seis sessões formam uma fila circular: você faz a próxima da lista, em qualquer dia. Se pular um dia, retoma de onde parou — nunca dobre sessões.</p>
+<div class="queue">
+  <div class="qi"><b>A</b>Superior horizontal</div><span class="arw">›</span>
+  <div class="qi low"><b>B</b>Inferior · quadríceps</div><span class="arw">›</span>
+  <div class="qi"><b>C</b>Superior vertical</div><span class="arw">›</span>
+  <div class="qi low"><b>D</b>Inferior · posterior</div><span class="arw">›</span>
+  <div class="qi"><b>E</b>Complementar</div><span class="arw">›</span>
+  <div class="qi"><b>F</b>Superior alongado</div><span class="arw">↺</span>
+</div>
+
+<div class="grid2">
+  <div class="box"><h3>A regra do esporte</h3><p>Nos dias de tênis ou futebol, se a fila entregar <b>B</b> ou <b>D</b>, pule para a sessão <b>E</b> e devolva a de inferiores para o dia seguinte. A quadra e o campo já entregam sprint, desaceleração e excêntrico de isquiotibial — empilhar agachamento ou terra pesado no mesmo dia é onde a conta não fecha. <b>E</b> foi desenhada exatamente para isso: só isoladores e máquinas, zero carga axial.</p></div>
+  <div class="box"><h3>Por que 4 superiores e 2 inferiores</h3><p>Com dois esportes por semana, suas pernas já recebem 2 estímulos de alta velocidade e impacto. As duas sessões de inferiores da academia entregam 14 séries de quadríceps e 15 de isquiotibiais por semana — dentro da faixa de hipertrofia — sem competir com a recuperação da quadra. O equilíbrio está no volume semanal, não na contagem de sessões.</p></div>
+</div>
+
+<h2>Os três mecanismos que fazem caber em 45 min</h2>
+<div class="grid2" style="margin-bottom:14px">
+  <div class="box"><h3>1 · Supersérie antagonista</h3><p>Peito com costas, bíceps com tríceps, quadríceps com isquiotibiais. Músculos opostos não competem por fadiga: o desempenho de cada um se mantém — em alguns casos melhora — e o tempo do bloco cai quase pela metade. É o motivo de um bloco pesado 4×4 caber em 12 min em vez de 22.</p></div>
+  <div class="box"><h3>2 · Um composto pesado por sessão</h3><p>Só o primeiro bloco recebe descanso longo (90–100 s entre rounds). Do segundo em diante os pares rodam com 15 s de transição e 45–60 s de descanso. Nas sessões de inferiores o par do composto é um exercício de custo zero — face pull, elevação lateral — que preenche o descanso sem roubar nada do agachamento.</p></div>
+</div>
+<div class="box"><h3>3 · Ênfase em posição alongada</h3><p>Supino inclinado com halteres, crucifixo na polia, tríceps acima da cabeça, rosca inclinada, panturrilha com pausa embaixo, paralelas com tronco à frente, parciais no fundo do movimento. Carregar o músculo alongado é o achado mais consistente da literatura de hipertrofia dos últimos anos — e é justamente onde 20 anos de controle motor rendem mais do que carga bruta. Com esse repertório, o estímulo vem de amplitude e proximidade da falha, não de empilhar séries.</p></div>
+
+<h2>As seis sessões</h2>
+
+<article class="card" id="sess-A">
+  <header class="card-h">
+    <div class="badge">A</div>
+    <div class="card-t">
+      <h3>Superior Horizontal — Peito e Costas (espessura)</h3>
+      <p class="meta"><span class="tag t-superior">Superior</span> · 22 séries · ≈ 35 min <span class="prog" data-for="A"></span></p>
+    </div>
+    <button class="reset" data-reset="A" title="Limpar marcações">limpar</button>
+  </header>
+  <p class="warm"><strong>Aquecimento</strong> · 3 min de bike ou remo · 15 pull-aparts · 15 rotações externas com elástico · 2 aproximações no supino (50% e 75%).</p>
+  <div class="tw"><table>
+    <thead><tr><th></th><th>Exercício</th><th class="num">Séries</th><th class="num">Reps</th><th class="num">RIR</th><th class="num">Descanso</th></tr></thead>
+    <tbody><tr><td class="cod">A1</td><td class="ex"><label><input type="checkbox" class="chk" data-s="A"><span>Supino inclinado com halteres (30°, descida 3 s, alongar embaixo)</span></label></td><td class="num">4</td><td class="num">6–9</td><td class="num">1–2</td><td class="num desc sup">15 s → A2</td></tr><tr><td class="cod">A2</td><td class="ex"><label><input type="checkbox" class="chk" data-s="A"><span>Remada Pendlay ou remada T (tronco paralelo)</span></label></td><td class="num">4</td><td class="num">6–8</td><td class="num">2</td><td class="num desc">90 s</td></tr><tr><td class="cod">B1</td><td class="ex"><label><input type="checkbox" class="chk" data-s="A"><span>Crucifixo na polia média (parciais alongadas na última)</span></label></td><td class="num">3</td><td class="num">10–12</td><td class="num">0–1</td><td class="num desc sup">15 s → B2</td></tr><tr><td class="cod">B2</td><td class="ex"><label><input type="checkbox" class="chk" data-s="A"><span>Remada baixa pegada neutra (alongar na frente, pausa 1 s)</span></label></td><td class="num">3</td><td class="num">10–12</td><td class="num">1</td><td class="num desc">60 s</td></tr><tr><td class="cod">C1</td><td class="ex"><label><input type="checkbox" class="chk" data-s="A"><span>Tríceps testa com barra EZ (deitado, alongado)</span></label></td><td class="num">3</td><td class="num">10–12</td><td class="num">0–1</td><td class="num desc sup">15 s → C2</td></tr><tr><td class="cod">C2</td><td class="ex"><label><input type="checkbox" class="chk" data-s="A"><span>Rosca inclinada com halteres (banco 60°, alongado)</span></label></td><td class="num">3</td><td class="num">10–12</td><td class="num">0–1</td><td class="num desc">45 s</td></tr><tr><td class="cod">D</td><td class="ex"><label><input type="checkbox" class="chk" data-s="A"><span>Panturrilha em pé (pausa 2 s embaixo) — última em myo-rep</span></label></td><td class="num">2</td><td class="num">8–10</td><td class="num">0</td><td class="num desc">—</td></tr></tbody>
+  </table></div>
+  <p class="nota">Supino e remada pesados na mesma supersérie: são antagonistas, então nenhum dos dois perde desempenho e o bloco cabe em 12 min em vez de 22. Se a remada Pendlay estiver comprometendo a lombar num dia de futebol recente, troque por remada máquina com apoio no peito.</p>
+</article>
+<article class="card" id="sess-B">
+  <header class="card-h">
+    <div class="badge">B</div>
+    <div class="card-t">
+      <h3>Inferior 1 — Quadríceps ênfase</h3>
+      <p class="meta"><span class="tag t-inferior">Inferior</span> · 19 séries · ≈ 33 min <span class="prog" data-for="B"></span></p>
+    </div>
+    <button class="reset" data-reset="B" title="Limpar marcações">limpar</button>
+  </header>
+  <p class="warm"><strong>Aquecimento</strong> · 3 min de bike · 10 agachamentos com barra vazia · 10 good mornings · 3 aproximações (40 / 60 / 80%).</p>
+  <div class="tw"><table>
+    <thead><tr><th></th><th>Exercício</th><th class="num">Séries</th><th class="num">Reps</th><th class="num">RIR</th><th class="num">Descanso</th></tr></thead>
+    <tbody><tr><td class="cod">A1</td><td class="ex"><label><input type="checkbox" class="chk" data-s="B"><span>Agachamento livre (ou hack)</span></label></td><td class="num">4</td><td class="num">5–8</td><td class="num">2</td><td class="num desc sup">20 s → A2</td></tr><tr><td class="cod">A2</td><td class="ex"><label><input type="checkbox" class="chk" data-s="B"><span>Face pull na polia alta</span></label></td><td class="num">4</td><td class="num">15–20</td><td class="num">3</td><td class="num desc">100 s</td></tr><tr><td class="cod">B1</td><td class="ex"><label><input type="checkbox" class="chk" data-s="B"><span>Leg press pés baixos e próximos</span></label></td><td class="num">3</td><td class="num">10–12</td><td class="num">1</td><td class="num desc sup">15 s → B2</td></tr><tr><td class="cod">B2</td><td class="ex"><label><input type="checkbox" class="chk" data-s="B"><span>Mesa flexora deitado (excêntrica 3 s)</span></label></td><td class="num">3</td><td class="num">10–12</td><td class="num">1</td><td class="num desc">60 s</td></tr><tr><td class="cod">C1</td><td class="ex"><label><input type="checkbox" class="chk" data-s="B"><span>Cadeira extensora (última em myo-rep)</span></label></td><td class="num">2</td><td class="num">15–20</td><td class="num">0</td><td class="num desc sup">15 s → C2</td></tr><tr><td class="cod">C2</td><td class="ex"><label><input type="checkbox" class="chk" data-s="B"><span>Panturrilha sentado (pausa 2 s embaixo)</span></label></td><td class="num">3</td><td class="num">12–15</td><td class="num">0–1</td><td class="num desc">45 s</td></tr></tbody>
+  </table></div>
+  <p class="nota">Única sessão com carga axial pesada no agachamento. O face pull entre as séries é de propósito: custo zero e mantém o manguito em dia sem gastar tempo separado.</p>
+</article>
+<article class="card" id="sess-C">
+  <header class="card-h">
+    <div class="badge">C</div>
+    <div class="card-t">
+      <h3>Superior Vertical — Dorsal (largura) e Ombro</h3>
+      <p class="meta"><span class="tag t-superior">Superior</span> · 21 séries · ≈ 36 min <span class="prog" data-for="C"></span></p>
+    </div>
+    <button class="reset" data-reset="C" title="Limpar marcações">limpar</button>
+  </header>
+  <p class="warm"><strong>Aquecimento</strong> · 3 min de corda ou elíptico · 15 pull-aparts · 10 scapular pulls · 1 barra fixa sem lastro · 1 aproximação no desenvolvimento.</p>
+  <div class="tw"><table>
+    <thead><tr><th></th><th>Exercício</th><th class="num">Séries</th><th class="num">Reps</th><th class="num">RIR</th><th class="num">Descanso</th></tr></thead>
+    <tbody><tr><td class="cod">A1</td><td class="ex"><label><input type="checkbox" class="chk" data-s="C"><span>Barra fixa pronada lastrada (amplitude total, sem impulso)</span></label></td><td class="num">4</td><td class="num">5–8</td><td class="num">1</td><td class="num desc sup">15 s → A2</td></tr><tr><td class="cod">A2</td><td class="ex"><label><input type="checkbox" class="chk" data-s="C"><span>Desenvolvimento com halteres sentado (encosto 80°)</span></label></td><td class="num">4</td><td class="num">6–9</td><td class="num">1–2</td><td class="num desc">90 s</td></tr><tr><td class="cod">B1</td><td class="ex"><label><input type="checkbox" class="chk" data-s="C"><span>Puxada alta pegada neutra (alongar no topo, tronco quase vertical)</span></label></td><td class="num">3</td><td class="num">10–12</td><td class="num">1</td><td class="num desc sup">15 s → B2</td></tr><tr><td class="cod">B2</td><td class="ex"><label><input type="checkbox" class="chk" data-s="C"><span>Elevação lateral unilateral na polia (drop set na última)</span></label></td><td class="num">4</td><td class="num">12–15</td><td class="num">0–1</td><td class="num desc">60 s</td></tr><tr><td class="cod">C1</td><td class="ex"><label><input type="checkbox" class="chk" data-s="C"><span>Pullover na polia alta ou máquina</span></label></td><td class="num">3</td><td class="num">12–15</td><td class="num">0–1</td><td class="num desc sup">15 s → C2</td></tr><tr><td class="cod">C2</td><td class="ex"><label><input type="checkbox" class="chk" data-s="C"><span>Tríceps na corda acima da cabeça (alongado)</span></label></td><td class="num">3</td><td class="num">12–15</td><td class="num">0</td><td class="num desc">45 s</td></tr></tbody>
+  </table></div>
+  <p class="nota">A elevação lateral aparece aqui, em D e em E — 14 séries por semana em três frequências. É a decisão isolada com mais impacto na largura do ombro.</p>
+</article>
+<article class="card" id="sess-D">
+  <header class="card-h">
+    <div class="badge">D</div>
+    <div class="card-t">
+      <h3>Inferior 2 — Cadeia posterior, glúteo e core</h3>
+      <p class="meta"><span class="tag t-inferior">Inferior</span> · 20 séries · ≈ 34 min <span class="prog" data-for="D"></span></p>
+    </div>
+    <button class="reset" data-reset="D" title="Limpar marcações">limpar</button>
+  </header>
+  <p class="warm"><strong>Aquecimento</strong> · 3 min de bike · 10 good mornings com barra vazia · 10 elevações pélvicas sem carga · 2 aproximações no terra romeno.</p>
+  <div class="tw"><table>
+    <thead><tr><th></th><th>Exercício</th><th class="num">Séries</th><th class="num">Reps</th><th class="num">RIR</th><th class="num">Descanso</th></tr></thead>
+    <tbody><tr><td class="cod">A1</td><td class="ex"><label><input type="checkbox" class="chk" data-s="D"><span>Levantamento terra romeno (lombar neutra, parar ao perder o neutro)</span></label></td><td class="num">4</td><td class="num">6–8</td><td class="num">2</td><td class="num desc sup">20 s → A2</td></tr><tr><td class="cod">A2</td><td class="ex"><label><input type="checkbox" class="chk" data-s="D"><span>Elevação lateral com halteres</span></label></td><td class="num">4</td><td class="num">12–15</td><td class="num">1</td><td class="num desc">100 s</td></tr><tr><td class="cod">B1</td><td class="ex"><label><input type="checkbox" class="chk" data-s="D"><span>Elevação pélvica com barra (pausa 1 s no topo)</span></label></td><td class="num">3</td><td class="num">8–10</td><td class="num">1</td><td class="num desc sup">15 s → B2</td></tr><tr><td class="cod">B2</td><td class="ex"><label><input type="checkbox" class="chk" data-s="D"><span>Cadeira flexora sentado (pausa 1 s na contração)</span></label></td><td class="num">3</td><td class="num">12–15</td><td class="num">0–1</td><td class="num desc">60 s</td></tr><tr><td class="cod">C1</td><td class="ex"><label><input type="checkbox" class="chk" data-s="D"><span>Abdução de quadril na máquina (tronco inclinado à frente)</span></label></td><td class="num">3</td><td class="num">15–20</td><td class="num">0–1</td><td class="num desc sup">15 s → C2</td></tr><tr><td class="cod">C2</td><td class="ex"><label><input type="checkbox" class="chk" data-s="D"><span>Roda abdominal ou abdominal na polia</span></label></td><td class="num">3</td><td class="num">10–15</td><td class="num">1</td><td class="num desc">45 s</td></tr></tbody>
+  </table></div>
+  <p class="nota">Terra romeno é o outro movimento de carga axial pesada do ciclo. Se você jogou futebol nas últimas 24 h, faça 3 séries em vez de 4 — o isquiotibial já levou excêntrico em alta velocidade na quadra.</p>
+</article>
+<article class="card" id="sess-E">
+  <header class="card-h">
+    <div class="badge">E</div>
+    <div class="card-t">
+      <h3>Complementar — Deltoides, braços, pernas acessório e core</h3>
+      <p class="meta"><span class="tag t-complementar">Complementar</span> · 26 séries · ≈ 34 min <span class="prog" data-for="E"></span></p>
+    </div>
+    <button class="reset" data-reset="E" title="Limpar marcações">limpar</button>
+  </header>
+  <p class="warm"><strong>Aquecimento</strong> · 2 min de bike · 15 rotações externas · 15 elevações laterais com 2 kg. Sessão leve — não precisa de mais.</p>
+  <div class="tw"><table>
+    <thead><tr><th></th><th>Exercício</th><th class="num">Séries</th><th class="num">Reps</th><th class="num">RIR</th><th class="num">Descanso</th></tr></thead>
+    <tbody><tr><td class="cod">A1</td><td class="ex"><label><input type="checkbox" class="chk" data-s="E"><span>Elevação lateral com halteres (parciais alongadas no fim)</span></label></td><td class="num">4</td><td class="num">12–15</td><td class="num">0–1</td><td class="num desc sup">15 s → A2</td></tr><tr><td class="cod">A2</td><td class="ex"><label><input type="checkbox" class="chk" data-s="E"><span>Crucifixo inverso na polia (unilateral cruzado)</span></label></td><td class="num">4</td><td class="num">15–20</td><td class="num">0–1</td><td class="num desc">45 s</td></tr><tr><td class="cod">B1</td><td class="ex"><label><input type="checkbox" class="chk" data-s="E"><span>Rosca direta na polia baixa (ou barra W)</span></label></td><td class="num">3</td><td class="num">8–12</td><td class="num">0–1</td><td class="num desc sup">15 s → B2</td></tr><tr><td class="cod">B2</td><td class="ex"><label><input type="checkbox" class="chk" data-s="E"><span>Tríceps na polia com barra reta</span></label></td><td class="num">3</td><td class="num">12–15</td><td class="num">0</td><td class="num desc">45 s</td></tr><tr><td class="cod">C1</td><td class="ex"><label><input type="checkbox" class="chk" data-s="E"><span>Cadeira extensora (pausa 1 s no topo)</span></label></td><td class="num">3</td><td class="num">12–15</td><td class="num">0–1</td><td class="num desc sup">15 s → C2</td></tr><tr><td class="cod">C2</td><td class="ex"><label><input type="checkbox" class="chk" data-s="E"><span>Cadeira flexora sentado</span></label></td><td class="num">3</td><td class="num">12–15</td><td class="num">0–1</td><td class="num desc">45 s</td></tr><tr><td class="cod">D1</td><td class="ex"><label><input type="checkbox" class="chk" data-s="E"><span>Panturrilha em pé (pausa 2 s embaixo)</span></label></td><td class="num">3</td><td class="num">10–12</td><td class="num">0–1</td><td class="num desc sup">15 s → D2</td></tr><tr><td class="cod">D2</td><td class="ex"><label><input type="checkbox" class="chk" data-s="E"><span>Prancha com peso ou Pallof press</span></label></td><td class="num">3</td><td class="num">30–45 s</td><td class="num">1</td><td class="num desc">40 s</td></tr></tbody>
+  </table></div>
+  <p class="nota">Sessão de custo sistêmico baixo, feita para cair no dia do tênis ou do futebol. Só isoladores e máquinas, nada de carga axial. Se a fila entregar uma sessão de inferiores num dia de jogo, troque por esta e devolva a de inferiores para o dia seguinte.</p>
+</article>
+<article class="card" id="sess-F">
+  <header class="card-h">
+    <div class="badge">F</div>
+    <div class="card-t">
+      <h3>Superior Alongado — Peito, bíceps e deltoide posterior</h3>
+      <p class="meta"><span class="tag t-superior">Superior</span> · 24 séries · ≈ 36 min <span class="prog" data-for="F"></span></p>
+    </div>
+    <button class="reset" data-reset="F" title="Limpar marcações">limpar</button>
+  </header>
+  <p class="warm"><strong>Aquecimento</strong> · 3 min de remo · 15 pull-aparts · 10 flexões · 2 aproximações nas paralelas.</p>
+  <div class="tw"><table>
+    <thead><tr><th></th><th>Exercício</th><th class="num">Séries</th><th class="num">Reps</th><th class="num">RIR</th><th class="num">Descanso</th></tr></thead>
+    <tbody><tr><td class="cod">A1</td><td class="ex"><label><input type="checkbox" class="chk" data-s="F"><span>Paralelas lastradas (tronco inclinado à frente)</span></label></td><td class="num">4</td><td class="num">6–10</td><td class="num">1</td><td class="num desc sup">15 s → A2</td></tr><tr><td class="cod">A2</td><td class="ex"><label><input type="checkbox" class="chk" data-s="F"><span>Remada cavalinho ou remada máquina pegada neutra</span></label></td><td class="num">4</td><td class="num">8–10</td><td class="num">1–2</td><td class="num desc">90 s</td></tr><tr><td class="cod">B1</td><td class="ex"><label><input type="checkbox" class="chk" data-s="F"><span>Crucifixo na máquina / peck deck (parciais alongadas na última)</span></label></td><td class="num">3</td><td class="num">12–15</td><td class="num">0–1</td><td class="num desc sup">15 s → B2</td></tr><tr><td class="cod">B2</td><td class="ex"><label><input type="checkbox" class="chk" data-s="F"><span>Crucifixo inverso na máquina</span></label></td><td class="num">3</td><td class="num">15–20</td><td class="num">0–1</td><td class="num desc">60 s</td></tr><tr><td class="cod">C1</td><td class="ex"><label><input type="checkbox" class="chk" data-s="F"><span>Rosca scott ou spider curl</span></label></td><td class="num">3</td><td class="num">10–12</td><td class="num">0–1</td><td class="num desc sup">15 s → C2</td></tr><tr><td class="cod">C2</td><td class="ex"><label><input type="checkbox" class="chk" data-s="F"><span>Encolhimento com halteres (pausa 1 s no topo)</span></label></td><td class="num">4</td><td class="num">10–12</td><td class="num">1</td><td class="num desc">45 s</td></tr><tr><td class="cod">D</td><td class="ex"><label><input type="checkbox" class="chk" data-s="F"><span>Panturrilha unilateral em pé</span></label></td><td class="num">3</td><td class="num">12–15</td><td class="num">0–1</td><td class="num desc">—</td></tr></tbody>
+  </table></div>
+  <p class="nota">A ênfase aqui é posição alongada: paralelas com tronco à frente, crucifixo com parciais no fundo, rosca scott com o braço à frente do corpo. É o mecanismo com melhor suporte na literatura recente e é onde 20 anos de controle motor rendem mais que carga.</p>
+</article>
+
+<h2>Volume semanal por grupo muscular</h2>
+<p class="lead">132 séries por ciclo. Rodando 7 dias por semana, cada sessão cai 1,17× por semana. A barra azul é o seu volume; a faixa cinza atrás é a janela de referência para praticante avançado.</p>
+<div class="chartbox">
+  <div class="legend">
+    <span><i style="background:var(--s1)"></i>Séries por semana</span>
+    <span><i style="background:var(--band)"></i>Faixa de referência</span>
+  </div>
+  <div id="chart"></div>
+  <div class="axis"><div></div><div class="ticks" id="ticks"></div><div></div></div>
+  <button class="tog" id="tog">ver como tabela</button>
+  <div id="voltab"></div>
+</div>
+
+<h2>Progressão e autorregulação</h2>
+<div class="grid2">
+  <div class="box"><h3>Dupla progressão</h3><p>Cada exercício tem uma faixa de reps. Fique na mesma carga até bater o topo da faixa em todas as séries mantendo o RIR alvo; então suba a carga e volte para a base. Exemplo: supino inclinado 4×6–9 com 34 kg → ao fazer 9/9/9/9 com RIR 1, vá para 36 kg e recomece em 6–7.</p></div>
+  <div class="box"><h3>Incrementos</h3><p>Barra: +2,5 kg (+5 kg em agachamento e terra). Halteres: próximo par disponível. Polias e máquinas: +1 placa ou meia placa magnética. Isolador travado há duas sessões: adicione 1 rep por série antes de tentar peso.</p></div>
+  <div class="box"><h3>Regra do dia ruim</h3><p>Faça a primeira série de trabalho do primeiro exercício. Se as reps com o RIR alvo caírem 2 ou mais em relação à mesma sessão do ciclo anterior, o dia vira reduzido: mantenha as cargas, corte a última série de cada bloco e encerre. Não puxe a sessão seguinte para o lugar dela.</p></div>
+  <div class="box"><h3>Deload</h3><p>A cada 5–6 semanas, uma semana com metade das séries de trabalho por exercício, mesmas cargas, parando em RIR 3–4. A rotação não muda, só o volume. Se chegar na semana 7 sem sentir necessidade, faça o deload assim mesmo.</p></div>
+</div>
+
+<h2>Trocas de exercício</h2>
+<p class="lead">Mantenha os exercícios por 8–12 semanas, depois troque as variações preservando o padrão de movimento e a faixa de reps. O padrão fica; a ferramenta muda.</p>
+<div class="box"><ul>
+<li>Supino inclinado com halteres → supino inclinado com barra ou na máquina convergente</li>
+<li>Remada Pendlay → remada cavalinho, remada curvada com halteres ou remada máquina com apoio no peito</li>
+<li>Agachamento livre → hack, agachamento pendular ou búlgaro pesado</li>
+<li>Terra romeno → bom dia com barra, terra romeno com halteres ou flexora nórdica assistida (esta última é a melhor escolha em fases com futebol frequente: é o exercício com melhor evidência de proteção do isquiotibial em esporte de sprint)</li>
+<li>Barra fixa lastrada → puxada pronada com pausa, ou barra fixa com pegada supinada</li>
+<li>Paralelas → supino declinado ou crossover baixo-para-alto</li>
+</ul></div>
+
+<h2>Fora da academia</h2>
+<div class="box"><ul>
+<li><b>Sono é a variável limitante.</b> Abaixo de 7 h consistentes, rode a fila em 6 dias com um dia de caminhada em vez de 7.</li>
+<li><b>Proteína:</b> 1,6–2,2 g por kg de peso corporal por dia, distribuída em 3–5 refeições.</li>
+<li><b>Calorias:</b> hipertrofia com esse volume mais dois esportes pede pelo menos manutenção. Em déficit, corte para a fila em 6 dias e remova a última série de cada bloco.</li>
+<li><b>Dia seguinte ao futebol:</b> priorize <b>A</b>, <b>C</b>, <b>E</b> ou <b>F</b>. O isquiotibial precisa de 48 h depois de sprint máximo.</li>
+<li><b>Aquecimento não é opcional</b> — os 4–6 min já estão contados dentro do tempo de cada sessão.</li>
+</ul></div>
+
+<p class="foot">Dor articular aguda não é fadiga — nesse caso pare o movimento e procure avaliação profissional. Este programa é orientação geral de treino, não prescrição médica.</p>
+</div>
+
+<script>
+const DADOS = [{"m": "Dorsal", "v": 18.1, "lo": 10, "hi": 22, "f": 3.5}, {"m": "Peito", "v": 16.3, "lo": 10, "hi": 20, "f": 2.3}, {"m": "Isquiotibiais", "v": 15.2, "lo": 8, "hi": 18, "f": 3.5}, {"m": "Quadríceps", "v": 14.0, "lo": 8, "hi": 20, "f": 2.3}, {"m": "Deltoide lateral", "v": 14.0, "lo": 8, "hi": 20, "f": 3.5}, {"m": "Panturrilha", "v": 12.8, "lo": 8, "hi": 16, "f": 4.7}, {"m": "Deltoide posterior", "v": 12.8, "lo": 6, "hi": 16, "f": 3.5}, {"m": "Glúteo", "v": 11.7, "lo": 8, "hi": 18, "f": 2.3}, {"m": "Tríceps", "v": 10.5, "lo": 8, "hi": 18, "f": 3.5}, {"m": "Bíceps", "v": 10.5, "lo": 8, "hi": 18, "f": 3.5}, {"m": "Core", "v": 7.0, "lo": 6, "hi": 15, "f": 2.3}, {"m": "Costas superior", "v": 6.4, "lo": 6, "hi": 16, "f": 2.3}, {"m": "Deltoide anterior", "v": 4.7, "lo": 4, "hi": 12, "f": 1.2}, {"m": "Trapézio", "v": 4.7, "lo": 4, "hi": 12, "f": 1.2}];
+const MAX = 24;
+(function(){
+  const c = document.getElementById('chart');
+  DADOS.forEach(d => {
+    const r = document.createElement('div'); r.className = 'row';
+    r.title = d.m + ': ' + d.v + ' séries/semana · frequência ' + d.f.toFixed(1) + '×/semana · referência ' + d.lo + '–' + d.hi;
+    r.innerHTML = '<div class="rl">' + d.m + '</div>' +
+      '<div class="track"><div class="rng" style="left:' + (d.lo/MAX*100) + '%;width:' + ((d.hi-d.lo)/MAX*100) + '%"></div>' +
+      '<div class="bar" style="width:0"></div></div><div class="rv">' + d.v + '</div>';
+    c.appendChild(r);
+    requestAnimationFrame(() => { r.querySelector('.bar').style.width = (d.v/MAX*100) + '%'; });
+  });
+  const t = document.getElementById('ticks');
+  [0,6,12,18,24].forEach(v => {
+    const s = document.createElement('span'); s.textContent = v;
+    s.style.left = (v/MAX*100) + '%'; t.appendChild(s);
+  });
+  let rows = DADOS.map(d => '<tr><td>' + d.m + '</td><td class="num">' + d.v + '</td><td class="num">' + d.f.toFixed(1) + '×</td><td class="num">' + d.lo + '–' + d.hi + '</td></tr>').join('');
+  document.getElementById('voltab').innerHTML =
+    '<table><thead><tr><th>Grupo</th><th class="num">Séries/sem</th><th class="num">Freq.</th><th class="num">Referência</th></tr></thead><tbody>' + rows + '</tbody></table>';
+  document.getElementById('tog').onclick = function(){
+    const el = document.getElementById('voltab'); el.classList.toggle('on');
+    this.textContent = el.classList.contains('on') ? 'ocultar tabela' : 'ver como tabela';
+  };
+})();
+function upd(k){
+  const all = document.querySelectorAll('.chk[data-s="' + k + '"]');
+  const n = [...all].filter(c => c.checked).length;
+  document.querySelector('.prog[data-for="' + k + '"]').textContent = n ? n + '/' + all.length : '';
+}
+document.querySelectorAll('.chk').forEach(c => c.addEventListener('change', () => upd(c.dataset.s)));
+document.querySelectorAll('.reset').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('.chk[data-s="' + b.dataset.reset + '"]').forEach(c => c.checked = false);
+  upd(b.dataset.reset);
+}));
+</script>
+</body></html>
